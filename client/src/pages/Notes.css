@@ -1,0 +1,126 @@
+.notes-controls {
+    margin-bottom: 2rem;
+}
+
+.search-bar {
+    max-width: 400px;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.note-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    position: relative;
+}
+
+.note-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.note-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+}
+
+.note-subject {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.note-date {
+    color: var(--color-text-light);
+}
+
+.note-title {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+    line-height: 1.4;
+}
+
+.note-preview {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.note-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    display: flex;
+    gap: 0.5rem;
+    background-color: var(--color-bg-card);
+    padding-left: 0.5rem;
+}
+
+.note-card:hover .note-actions {
+    opacity: 1;
+}
+
+.action-btn {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    padding: 0.4rem;
+    border-radius: var(--radius-sm);
+}
+
+.action-btn:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.action-btn.delete-btn:hover {
+    background-color: #fee2e2;
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+}
+
+.note-editor {
+    min-height: 200px;
+    font-family: 'Inter', sans-serif;
+}
+
+.view-note-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.875rem;
+}
+
+.note-body {
+    white-space: pre-wrap;
+    line-height: 1.8;
+    color: var(--color-text);
+}

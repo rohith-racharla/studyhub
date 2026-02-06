@@ -1,0 +1,4 @@
+/* Modal styles are already in index.css, just adding specific tweaks here if needed */
+.modal-overlay {
+    backdrop-filter: blur(2px);
+}

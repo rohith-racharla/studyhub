@@ -1,0 +1,243 @@
+.dashboard-header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.welcome-title {
+    font-size: 1.75rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+    color: var(--color-text-secondary);
+}
+
+.date-display {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    background-color: var(--color-primary-light);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-card {
+    background-color: var(--color-bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: var(--color-bg);
+}
+
+.stat-icon.purple {
+    background-color: #e0e7ff;
+}
+
+.stat-icon.green {
+    background-color: #d1fae5;
+}
+
+.stat-icon.orange {
+    background-color: #ffedd5;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+/* Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dashboard-section {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    height: fit-content;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+/* Task List Styles */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    background-color: #fff;
+    transition: all var(--transition-fast);
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--color-border);
+}
+
+.priority-indicator {
+    width: 4px;
+    height: 40px;
+    border-radius: 2px;
+}
+
+.priority-indicator.low {
+    background-color: var(--color-success);
+}
+
+.priority-indicator.medium {
+    background-color: var(--color-warning);
+}
+
+.priority-indicator.high {
+    background-color: var(--color-danger);
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.task-meta {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+.task-subject {
+    font-weight: 500;
+}
+
+.check-btn {
+    color: var(--color-text-light);
+    border: 1px solid var(--color-border);
+}
+
+.check-btn:hover {
+    color: var(--color-success);
+    border-color: var(--color-success);
+    background-color: #ecfdf5;
+}
+
+/* Subjects Mini Grid */
+.subjects-grid-mini {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.subject-card-mini {
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    border-left-width: 4px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform var(--transition-fast);
+}
+
+.subject-card-mini:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.subject-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subject-name {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.subject-badge {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    background-color: var(--color-bg);
+    padding: 0.125rem 0.5rem;
+    border-radius: var(--radius-full);
+}
+
+.empty-state-mini {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-text-secondary);
+}
+
+.empty-state-mini p {
+    margin-bottom: 0.75rem;
+}
