@@ -1,0 +1,65 @@
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0.21
+    container_name: studyhub-mongodb
+    restart: unless-stopped
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=studyhub
+    networks:
+      - studyhub-network
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # Backend API
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: studyhub-server
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./server/.env
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - studyhub-network
+    healthcheck:
+      test: [ "CMD", "wget", "--spider", "http://localhost:5000/health" ]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # Frontend App
+  frontend:
+    build:
+      context: ./client
+      args:
+        - NGINX_CONFIG=default.local.conf
+      dockerfile: Dockerfile
+    container_name: studyhub-client
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - studyhub-network
+
+networks:
+  studyhub-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
